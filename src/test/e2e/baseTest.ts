@@ -95,7 +95,8 @@ async function insertToDB(path) {
     }
     console.log('------------- insert into DB --------------')
     const dbpath = `${path}/User/globalStorage/state.vscdb`;
-    const config = require('./config.json');
+    // const config = require('./config.json');
+    const config = JSON.parse(process.env.ACCOUNT_CONFIG);
     const db = new Database(dbpath);
     for (let item of config) {
         const key: string = item.key;
