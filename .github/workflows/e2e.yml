@@ -35,6 +35,10 @@ jobs:
           name: "config.json"
           json: ${{ secrets.ACCOUNT_CONFIG }}
           dir: "./src/test/e2e"
+
+      - name: show files
+        run: |
+          ls -la ./src/test/e2e
       - run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" npx playwright test
         working-directory: ./src/test/e2e
